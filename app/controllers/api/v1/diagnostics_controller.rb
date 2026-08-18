@@ -1,4 +1,4 @@
-require 'dsp_analyzer'
+require "dsp_analyzer"
 
 class Api::V1::DiagnosticsController < ApplicationController
   protect_from_forgery with: :null_session, if: -> { request.format.json? }
