@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: audio_predictive_maintenance_development
+
+test:
+  <<: *default
+  database: audio_predictive_maintenance_test
+
+production:
+  <<: *default
+  # These fallbacks are just safe placeholders for compilation/local tasks
+  database: <%= ENV.fetch("AUDIO_POSTGRES_DB") { "audio_predictive_maintenance_production" } %>
+  username: <%= ENV.fetch("AUDIO_POSTGRES_USER") { "postgres" } %>
+  password: <%= ENV.fetch("AUDIO_POSTGRES_PASSWORD") { "dummy_password_for_build" } %>
+  host: <%= ENV.fetch("DB_HOST") { "draw-poker-db" } %>
+  port: 5432
