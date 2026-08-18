@@ -10,12 +10,15 @@ development:
 test:
   <<: *default
   database: audio_predictive_maintenance_test
+  username: postgres
+  password: password
+  host: 127.0.0.1
+  port: 5432
 
 production:
   <<: *default
-  # These fallbacks are just safe placeholders for compilation/local tasks
-  database: <%= ENV.fetch("AUDIO_POSTGRES_DB") { "audio_predictive_maintenance_production" } %>
-  username: <%= ENV.fetch("AUDIO_POSTGRES_USER") { "postgres" } %>
-  password: <%= ENV.fetch("AUDIO_POSTGRES_PASSWORD") { "dummy_password_for_build" } %>
-  host: <%= ENV.fetch("DB_HOST") { "draw-poker-db" } %>
+  database: <%= ENV.fetch("POSTGRES_DB") { "draw_poker_production" } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "dummy_password_for_build" } %>
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
   port: 5432
