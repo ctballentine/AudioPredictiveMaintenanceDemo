@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Source Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     # The Docker builder layer handles compilation natively, safely isolated from GitHub runner bugs
     - name: Set up Docker Buildx
